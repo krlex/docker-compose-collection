@@ -1,0 +1,15 @@
+version: '3'
+services:
+  consul:
+    image: consul
+    restart: always
+    container_name: consul_server
+    volumes:
+      - ./consul:/tmp/consul
+    ports:
+      - 8301:8301
+      - 8301:8301/udp
+      - 8302:8302
+      - 8302:8302/udp
+      - 53:53/udp
+        #command: consul agent -data-dir=/tmp/consul
