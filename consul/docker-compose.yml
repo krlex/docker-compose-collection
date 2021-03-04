@@ -1,15 +1,9 @@
-version: '3'
+version: '2'
 services:
-  consul:
-    image: consul
+    consul:
+    image: progrium/consul
     restart: always
-    container_name: consul_server
-    volumes:
-      - ./consul:/tmp/consul
+    hostname: consul
     ports:
-      - 8301:8301
-      - 8301:8301/udp
-      - 8302:8302
-      - 8302:8302/udp
-      - 53:53/udp
-        #command: consul agent -data-dir=/tmp/consul
+      - 8500:8500
+    command: "-server -bootstrap"
