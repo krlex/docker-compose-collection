@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
      ./script.sh
      clear
      cd /vagrant/
+     rm -rf ~/docker-installation/
      docker-compose up -d drupal
   SHELL
 end
