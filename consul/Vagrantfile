@@ -24,6 +24,7 @@ Vagrant.configure("2") do |config|
      cd docker-installation/
      ./script.sh
      cd /vagrant/
+     rm -rf ~/docker-installation/
      docker-compose up -d
   SHELL
 end
