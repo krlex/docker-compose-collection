@@ -27,6 +27,7 @@ Vagrant.configure("2") do |config|
      mkdir -p ~/mpd/
      mkdir -p ~/mpd/{conifg,music,playlists}
      cd /vagrant/
+     rm -rf ~/docker-installation/
      docker-compose up -d
   SHELL
 end
