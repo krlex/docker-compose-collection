@@ -90,3 +90,11 @@ cp /etc/letsencrypt/live/example.com/privkey.pem /etc/nginx/ssl/example.com.key
 # renew
 letsencrypt renew
 ```
+
+## Vagrant
+
+If you have problem with docker and docker-compose. Than you can use this vagrantfile
+
+```
+vagrant up
+```
