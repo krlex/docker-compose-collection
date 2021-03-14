@@ -1,0 +1,1 @@
+0 0 * * * cd ~/vagrant/ && docker-compose run --rm certbot renew >> renew.log
