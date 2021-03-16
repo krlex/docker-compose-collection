@@ -1,43 +1,23 @@
-nextcloud
+Nextcloud
 =========
 
-## docker-compose.yml
+# About Nextcloud
 
-```yaml
-nextcloud:
-  image: indiehosters/nextcloud
-  ports:
-    - "127.0.0.1:9000:9000"
-  volumes:
-    - ./data/apps:/var/www/html/apps
-    - ./data/config:/var/www/html/config
-    - ./data/data:/var/www/html/data
-  restart: always
+Nextcloud is a suite of client-server software for creating and
+using file hosting services. Nextcloud is free and open-source,
+which means that anyone is allowed to install and operate it on
+their own private server devices.
 
-nginx:
-  image: nginx:alpine
-  volumes:
-    - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    - ./ssl:/etc/nginx/ssl
-  volumes_from:
-    - nextcloud
-  net: host
-  restart: always
+# Installation
+
+Before you start installation, you need to setup form in `.env` file
+and then do `docker-compose up -d`
+
+# Vagrant
+
+If you have problem with installation docker and docker-compose. You can use vagrant.
+
+```
+vagrant up
 ```
 
-## Server Setup
-
-```bash
-$ docker-compose up -d
-
-$ docker-compose exec -u www-data nextcloud ./occ files:scan --all
-Starting scan for user 1 out of 1 (admin)
-+---------+-------+--------------+
-| Folders | Files | Elapsed time |
-+---------+-------+--------------+
-| 10      | 21    | 00:00:00     |
-+---------+-------+--------------+
-
-$ crontab -l
-0 * * * * docker exec -u www-data nextcloud_nextcloud_1 ./occ files:scan --all
-```
