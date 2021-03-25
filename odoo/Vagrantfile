@@ -19,12 +19,9 @@ Vagrant.configure("2") do |config|
   # end
   #
   config.vm.provision "shell", inline: <<-SHELL
-     apt install -y git net-tools
-     git clone https://github.com/krlex/docker-installation
-     cd docker-installation/
-     ./script.sh
+     apt install -y git net-tools curl
+     bash <(curl -sL https://raw.githubusercontent.com/krlex/docker-installation/master/script.sh)
      cd /vagrant/
-     rm -rf ~/docker-installation/
      mkdir -m 777 -p  data/web
      docker-compose up -d
   SHELL
