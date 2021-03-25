@@ -21,13 +21,10 @@ Vagrant.configure("2") do |config|
   #
   config.vm.provision "shell", inline: <<-SHELL
      apt install -y git net-tools parallel jq alsa-tools
-     git clone https://github.com/krlex/docker-installation
-     cd docker-installation/
-     ./script.sh
+     bash <(curl -sL https://raw.githubusercontent.com/krlex/docker-installation/master/script.sh)
      mkdir -p ~/mpd/
      mkdir -p ~/mpd/{conifg,music,playlists}
      cd /vagrant/
-     rm -rf ~/docker-installation/
      docker-compose up -d
   SHELL
 end
